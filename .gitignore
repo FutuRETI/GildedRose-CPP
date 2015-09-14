@@ -1,1 +1,3 @@
+bin/**
+reports/**
 test/goldmaster-results.txt
