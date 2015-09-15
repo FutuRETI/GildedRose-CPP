@@ -9,8 +9,8 @@ REPORTDIR=reports
 
 all: $(addprefix $(BINDIR)/,$(TARGETS))
 
-$(BINDIR)/%: $(SRCDIR)/GildedRose.cc $(SRCDIR)/GildedRose.h $(TESTDIR)/%.cc
-	$(CXX) -I$(SRCDIR) -o $(BINDIR)/$(notdir $@) $(SRCDIR)/GildedRose.h $(SRCDIR)/GildedRose.cc $(TESTDIR)/$(notdir $@).cc -lboost_unit_test_framework -fprofile-arcs -ftest-coverage --coverage --debug
+$(BINDIR)/%: $(SRCDIR)/GildedRose.cpp $(SRCDIR)/GildedRose.h $(TESTDIR)/%.cpp
+	$(CXX) -I$(SRCDIR) -o $(BINDIR)/$(notdir $@) $(SRCDIR)/GildedRose.h $(SRCDIR)/GildedRose.cpp $(TESTDIR)/$(notdir $@).cpp -lboost_unit_test_framework -fprofile-arcs -ftest-coverage --coverage --debug
 	-mv *.gcno $(REPORTDIR)/
 
 test: $(addprefix $(BINDIR)/,$(TARGETS)) $(addprefix run-,$(TARGETS)) $(addprefix val-,$(TARGETS))
